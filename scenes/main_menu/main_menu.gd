@@ -1,13 +1,13 @@
 extends Control
 
-const MainMenu = preload("res://scenes/main_menu/main_menu.tscn")
+
+func _on_play_pressed() -> void:
+	SceneManager.change_scene("level_menu")
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _on_level_editor_pressed() -> void:
+	SceneManager.change_scene("level_editor")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_quit_pressed() -> void:
+	get_tree().quit()

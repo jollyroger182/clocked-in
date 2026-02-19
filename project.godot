@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Clocked In"
+run/main_scene="uid://crkho5yl8tcna"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneManager="*res://autoloads/scene_manager.gd"
 
 [display]
 
@@ -27,3 +32,4 @@ enabled=PackedStringArray("res://addons/gdfxr/plugin.cfg", "res://addons/godot_s
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.043137256, 0.12156863, 0.22745098, 1)
