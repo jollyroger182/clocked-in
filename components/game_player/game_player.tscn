@@ -4,7 +4,9 @@
 [ext_resource type="Script" uid="uid://chmdpafvgbv8j" path="res://components/game_player/clock.gd" id="1_8tr8g"]
 [ext_resource type="Script" uid="uid://fk18melmubay" path="res://components/conductor.gd" id="2_1j3en"]
 [ext_resource type="Script" uid="uid://yyc6n7qw0h73" path="res://components/game_player/hands.gd" id="2_kewex"]
+[ext_resource type="Script" uid="uid://d1tu2g3cdok6n" path="res://components/game_player/notes.gd" id="4_wt24m"]
 [ext_resource type="Script" uid="uid://c1k4vgrlxu2q7" path="res://interfaces/event_source.gd" id="5_tpmkq"]
+[ext_resource type="Script" uid="uid://b8hm2edc5syou" path="res://components/game_player/input_handler.gd" id="7_qgljs"]
 
 [node name="GamePlayer" type="Node2D" unique_id=144519773]
 script = ExtResource("1_0ebuy")
@@ -17,6 +19,11 @@ script = ExtResource("2_kewex")
 event_source = NodePath("../../EventSource")
 conductor = NodePath("../../Conductor")
 
+[node name="Notes" type="Node2D" parent="Clock" unique_id=668576876 node_paths=PackedStringArray("conductor", "input_handler")]
+script = ExtResource("4_wt24m")
+conductor = NodePath("../../Conductor")
+input_handler = NodePath("../../InputHandler")
+
 [node name="Conductor" type="AudioStreamPlayer" parent="." unique_id=1331506053]
 script = ExtResource("2_1j3en")
 metadata/_custom_type_script = "uid://fk18melmubay"
@@ -25,3 +32,6 @@ metadata/_custom_type_script = "uid://fk18melmubay"
 script = ExtResource("5_tpmkq")
 conductor = NodePath("../Conductor")
 metadata/_custom_type_script = "uid://c1k4vgrlxu2q7"
+
+[node name="InputHandler" type="Node" parent="." unique_id=1803336911]
+script = ExtResource("7_qgljs")

@@ -54,6 +54,14 @@ This ZIP file will be unzipped to `user://level/` when the level is playing.
 			"type": "set_props",
 			"bpm": 120,
 			"beats_per_bar": 6
+		},
+		{
+			"beat": 4.0,
+			"type": "note",
+			// position on the clock (0-59)
+			"location": 30,
+			// (optional) color for the effect
+			"color": "#000000"
 		}
 	]
 }
@@ -62,5 +70,6 @@ This ZIP file will be unzipped to `user://level/` when the level is playing.
 ## Event types
 
 - [ ] `set_background`
-- [x] `add_hand`
+- [x] `add_hand` (handled in `hands.gd` when emitted)
 - [ ] `set_props`
+- [x] `note` (handled in `notes.gd` at startup)

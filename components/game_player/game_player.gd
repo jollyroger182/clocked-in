@@ -10,6 +10,7 @@ class_name GamePlayer
 
 @onready var clock = $Clock
 @onready var hands = $Clock/Hands
+@onready var notes = $Clock/Notes
 @onready var conductor = $Conductor
 @onready var event_source = $EventSource
 
@@ -19,11 +20,8 @@ func _ready() -> void:
 	event_source.event.connect(print)
 
 
-func _process(_delta: float) -> void:
-	pass
-
-
 func play() -> void:
 	# only set events here to prevent firing early
 	event_source.events = level["events"]
+	notes.notes = level["events"].filter(func (evt): return evt["type"] == "note")
 	conductor.unpause()

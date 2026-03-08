@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://x1ybhhfnrbiu"]
+
+[ext_resource type="Script" uid="uid://vnivp1ayggpu" path="res://components/game_player/note/note.gd" id="1_4fe06"]
+
+[node name="Note" type="Node2D" unique_id=1788909254]
+script = ExtResource("1_4fe06")
+beat = null
+location = null
+color = null

@@ -10,6 +10,7 @@ signal event(data: Dictionary)
 signal set_background(data: Dictionary)
 signal add_hand(data: Dictionary)
 signal set_props(data: Dictionary)
+signal note(data: Dictionary)
 
 var _event_index = 0
 
