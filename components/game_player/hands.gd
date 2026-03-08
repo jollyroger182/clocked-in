@@ -17,7 +17,6 @@ func _on_add_hand(data: Dictionary) -> void:
 	node.interval = data["interval"]
 	node.ticks = data["ticks"]
 	node.stride = data["stride"]
-	
 	if data.has("initial"):
 		node.initial = data["initial"]
 	if data.has("color"):

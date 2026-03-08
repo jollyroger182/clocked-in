@@ -11,6 +11,10 @@ extends Node2D
 
 @export var conductor: Conductor
 
+var easing_beats: float:
+	get:
+		return interval / 4
+
 var _position := 0
 var _last_tick_beat := 0.0
 var _ticks_remaining := 0
@@ -29,7 +33,7 @@ func _draw() -> void:
 
 func _process(_delta: float) -> void:
 	var next_tick_beat = _last_tick_beat + interval
-	if conductor.beat >= next_tick_beat:
+	if conductor.beat >= next_tick_beat - easing_beats:
 		_tick()
 
 
@@ -40,8 +44,14 @@ func _tick() -> void:
 	_position += stride
 	_last_tick_beat += interval
 	_ticks_remaining -= 1
-	_update_rotation()
+	var smooth_time = conductor.beat_to_time(_last_tick_beat) - conductor.position
+	_update_rotation(smooth_time)
 
 
-func _update_rotation() -> void:
-	rotation_degrees = 6 * _position - 90
+func _update_rotation(smooth: float = 0.0) -> void:
+	var new_rotation = 6 * _position - 90
+	if smooth:
+		var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+		tween.tween_property(self, "rotation_degrees", new_rotation, smooth)
+	else:
+		rotation_degrees = new_rotation

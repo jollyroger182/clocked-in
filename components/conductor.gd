@@ -27,14 +27,18 @@ func unpause():
 	elif not playing:
 		play()
 		position = get_playback_position()
-		beat = _calculate_beat()
+		beat = time_to_beat(position)
 
 
 func _process(_delta: float) -> void:
 	position = get_playback_position()
-	beat = _calculate_beat()
+	beat = time_to_beat(position)
 
 
-func _calculate_beat() -> float:
-	var time = position - offset
-	return time * bpm / 60
+
+func time_to_beat(time: float) -> float:
+	return (time - offset) * bpm / 60
+
+
+func beat_to_time(beat: float) -> float:
+	return beat * 60 / bpm + offset
