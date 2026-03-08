@@ -1,23 +1,29 @@
 extends Node2D
 
+const Hand = preload("res://components/game_player/hand/hand.tscn")
+
 @export var event_source: EventSource
+@export var conductor: Conductor
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if event_source:
-		set_event_source(event_source)
-
-
-func set_event_source(source: EventSource) -> void:
-	event_source = source
 	event_source.add_hand.connect(_on_add_hand)
 
 
 func _on_add_hand(data: Dictionary) -> void:
-	print("hand add ", data)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	var node = Hand.instantiate()
+	
+	node.beat = data["beat"]
+	node.interval = data["interval"]
+	node.ticks = data["ticks"]
+	node.stride = data["stride"]
+	
+	if data.has("initial"):
+		node.initial = data["initial"]
+	if data.has("color"):
+		node.color = Color(data["color"])
+	if data.has("length"):
+		node.length = data["length"]
+	
+	node.conductor = conductor
+	add_child(node)

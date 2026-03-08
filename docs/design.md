@@ -20,14 +20,13 @@ This ZIP file will be unzipped to `user://level/` when the level is playing.
 		
 		// initial bpm of music
 		"bpm": 100,
-		// number of beats per bar
+		// number of beats per bar (for editor only)
 		"beats_per_bar": 4
 	},
-	// sorted by bar then by beat
+	// sorted by beat
 	"events": [
 		{
-			"bar": 1,
-			"beat": 1,
+			"beat": 0.0,
 			"type": "set_background",
 			// name of the .tscn file in the ZIP to set as the background
 			"scene": "bg.tscn",
@@ -35,23 +34,23 @@ This ZIP file will be unzipped to `user://level/` when the level is playing.
 			"script": "bg.gd"
 		},
 		{
-			"bar": 1,
-			"beat": 1,
+			"beat": 0.0,
 			"type": "add_hand",
 			// every how many beats does this hand move?
-			"tick": 1,
+			"interval": 1.0,
 			// how many ticks does the hand move in total? (not including spawn)
 			"ticks": 7,
-			// how many places does the hand move each time? (1-60)
+			// how many places does the hand move each time? (1-59)
 			"stride": 5,
+			// (optional) initial position of the hand (0-59)
+			"initial": 0,
 			// (optional) color of the hand
 			"color": "#000000",
 			// (optional) length of the hand as a fraction of the radius
 			"length": 0.8
 		},
 		{
-			// no beat because must be start of bar
-			"bar": 2,
+			"beat": 4.0,
 			"type": "set_props",
 			"bpm": 120,
 			"beats_per_bar": 6
@@ -59,3 +58,9 @@ This ZIP file will be unzipped to `user://level/` when the level is playing.
 	]
 }
 ```
+
+## Event types
+
+- [ ] `set_background`
+- [x] `add_hand`
+- [ ] `set_props`

@@ -1,6 +1,5 @@
 extends Node2D
 
-@export var event_source: GameEventSource
 @export var player: GamePlayer
 
 var level: Dictionary
@@ -12,7 +11,7 @@ func _ready() -> void:
 	level = JSON.parse_string(FileAccess.get_file_as_string("user://level/level.json"))
 	audio = AudioStreamWAV.load_from_file("user://level/music.wav")
 	
-	event_source.set_events(level["events"])
+	player.level = level
 	player.audio = audio
 	player.play()
 
