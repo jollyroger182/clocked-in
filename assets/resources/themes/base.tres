@@ -5,7 +5,9 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j3n6v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vl7mf"]
+content_margin_left = 5.0
 content_margin_top = 5.0
+content_margin_right = 5.0
 content_margin_bottom = 5.0
 bg_color = Color(0.84705883, 0.72156864, 0.2901961, 1)
 corner_radius_top_left = 5
@@ -16,7 +18,9 @@ shadow_color = Color(0.84705883, 0.72156864, 0.2901961, 0.6)
 shadow_size = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3n6v"]
+content_margin_left = 5.0
 content_margin_top = 5.0
+content_margin_right = 5.0
 content_margin_bottom = 5.0
 bg_color = Color(0.7882353, 0.63529414, 0.15294118, 1)
 corner_radius_top_left = 5
@@ -25,7 +29,9 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfwax"]
+content_margin_left = 5.0
 content_margin_top = 5.0
+content_margin_right = 5.0
 content_margin_bottom = 5.0
 bg_color = Color(0.56, 0.43754667, 0.10080001, 1)
 corner_radius_top_left = 5
@@ -38,6 +44,18 @@ content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21637"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
@@ -58,4 +76,5 @@ Button/styles/normal = SubResource("StyleBoxFlat_j3n6v")
 Button/styles/pressed = SubResource("StyleBoxFlat_qfwax")
 HBoxContainer/constants/separation = 8
 Panel/styles/panel = SubResource("StyleBoxFlat_7u6pq")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_21637")
 VBoxContainer/constants/separation = 8
