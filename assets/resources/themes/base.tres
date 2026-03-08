@@ -17,7 +17,7 @@ corner_radius_bottom_left = 5
 shadow_color = Color(0.84705883, 0.72156864, 0.2901961, 0.6)
 shadow_size = 3
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3n6v"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfwax"]
 content_margin_left = 5.0
 content_margin_top = 5.0
 content_margin_right = 5.0
@@ -28,12 +28,12 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfwax"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ongi"]
 content_margin_left = 5.0
 content_margin_top = 5.0
 content_margin_right = 5.0
 content_margin_bottom = 5.0
-bg_color = Color(0.56, 0.43754667, 0.10080001, 1)
+bg_color = Color(0.56078434, 0.4392157, 0.101960786, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -72,9 +72,10 @@ Button/colors/font_hover_color = Color(0.043137256, 0.12156863, 0.22745098, 1)
 Button/colors/font_pressed_color = Color(0.043137256, 0.12156863, 0.22745098, 1)
 Button/styles/focus = SubResource("StyleBoxEmpty_j3n6v")
 Button/styles/hover = SubResource("StyleBoxFlat_vl7mf")
-Button/styles/normal = SubResource("StyleBoxFlat_j3n6v")
-Button/styles/pressed = SubResource("StyleBoxFlat_qfwax")
+Button/styles/normal = SubResource("StyleBoxFlat_qfwax")
+Button/styles/pressed = SubResource("StyleBoxFlat_8ongi")
 HBoxContainer/constants/separation = 8
+Label/colors/font_color = Color(0.78431374, 0.7490196, 0.65882355, 1)
 Panel/styles/panel = SubResource("StyleBoxFlat_7u6pq")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_21637")
 VBoxContainer/constants/separation = 8

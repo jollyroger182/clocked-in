@@ -13,9 +13,10 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
-func resolve(verdict: int) -> void:
+func resolve(tier: Dictionary) -> void:
+	print("resolved with tier ", tier["name"])
 	queue_free()

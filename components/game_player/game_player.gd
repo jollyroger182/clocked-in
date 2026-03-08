@@ -17,7 +17,6 @@ class_name GamePlayer
 
 func _ready() -> void:
 	conductor.audio = audio
-	event_source.event.connect(print)
 
 
 func play() -> void:
