@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dvi7xvvj5ohae"]
+
+[ext_resource type="Script" uid="uid://cu0mnqcbu6w4l" path="res://scenes/game/game.gd" id="1_7h61r"]
+[ext_resource type="PackedScene" uid="uid://ceo2bnbuv0esq" path="res://components/game_player/game_player.tscn" id="1_sul5r"]
+[ext_resource type="Script" uid="uid://83hx1sadttqh" path="res://scenes/game/event_source.gd" id="3_0sr1o"]
+
+[node name="Game" type="Node2D" unique_id=389039367 node_paths=PackedStringArray("event_source", "player")]
+script = ExtResource("1_7h61r")
+event_source = NodePath("EventSource")
+player = NodePath("GamePlayer")
+
+[node name="GamePlayer" parent="." unique_id=144519773 node_paths=PackedStringArray("event_source") instance=ExtResource("1_sul5r")]
+position = Vector2(640, 360)
+event_source = NodePath("../EventSource")
+
+[node name="EventSource" type="Node" parent="." unique_id=264119315 node_paths=PackedStringArray("player")]
+script = ExtResource("3_0sr1o")
+player = NodePath("../GamePlayer")
+metadata/_custom_type_script = "uid://c1k4vgrlxu2q7"

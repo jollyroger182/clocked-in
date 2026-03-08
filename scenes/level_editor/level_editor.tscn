@@ -34,10 +34,10 @@ size_flags_horizontal = 3
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_le4y8")
 
 [node name="Toolbar" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
 layout_mode = 2
-theme = ExtResource("2_le4y8")
 
 [node name="Button" type="Button" parent="VBoxContainer/PanelContainer/Toolbar"]
 layout_mode = 2

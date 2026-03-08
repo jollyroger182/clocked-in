@@ -1,4 +1,17 @@
 [gd_resource type="Theme" format=3 uid="uid://bl6wwub4g5dwe"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_660f0"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [resource]
 default_font_size = 16
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_660f0")

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ceo2bnbuv0esq"]
+
+[ext_resource type="Script" uid="uid://cnvb1c4pqlegp" path="res://components/game_player/game_player.gd" id="1_0ebuy"]
+[ext_resource type="Script" uid="uid://chmdpafvgbv8j" path="res://components/game_player/clock.gd" id="1_8tr8g"]
+[ext_resource type="Script" uid="uid://fk18melmubay" path="res://components/conductor.gd" id="2_1j3en"]
+[ext_resource type="Script" uid="uid://yyc6n7qw0h73" path="res://components/game_player/hands.gd" id="2_kewex"]
+
+[node name="GamePlayer" type="Node2D" unique_id=144519773]
+script = ExtResource("1_0ebuy")
+
+[node name="Clock" type="Node2D" parent="." unique_id=545050111]
+script = ExtResource("1_8tr8g")
+
+[node name="Hands" type="Node2D" parent="Clock" unique_id=1716259007]
+script = ExtResource("2_kewex")
+
+[node name="Conductor" type="AudioStreamPlayer" parent="." unique_id=1331506053]
+script = ExtResource("2_1j3en")
+metadata/_custom_type_script = "uid://fk18melmubay"
