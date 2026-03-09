@@ -21,16 +21,5 @@ func _ready() -> void:
 func _on_play(path: String) -> void:
 	print("playing ", path)
 	
-	if DirAccess.dir_exists_absolute("user://level"):
-		Utils.delete_folder_recursive("user://level")
-	elif FileAccess.file_exists("user://level"):
-		DirAccess.remove_absolute("user://level")
-	
-	DirAccess.make_dir_recursive_absolute("user://level")
-	
-	var reader = ZIPReader.new()
-	reader.open(path)
-	Utils.unzip(reader, "user://level")
-	reader.close()
-	
+	LevelLoader.load_level(path)
 	SceneManager.change_scene("game")

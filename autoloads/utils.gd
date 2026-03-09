@@ -36,6 +36,33 @@ func unzip(reader: ZIPReader, folder: String):
 		file.close()
 
 
+func copy_tree(src: String, dst: String) -> Error:
+	var dir = DirAccess.open(src)
+	if not dir:
+		return DirAccess.get_open_error()
+	
+	dir.list_dir_begin()
+	
+	var filename = dir.get_next()
+	while filename != "":
+		if filename == "." or filename == "..":
+			filename = dir.get_next()
+			continue
+		
+		var src_path = src + "/" + filename
+		var dst_path = dst + "/" + filename
+		if dir.current_is_dir():
+			copy_tree(src_path, dst_path)
+		else:
+			var contents = FileAccess.get_file_as_bytes(src_path)
+			var new_file = FileAccess.open(dst_path, FileAccess.WRITE)
+			new_file.store_buffer(contents)
+			new_file.close()
+		filename = dir.get_next()
+	
+	return OK
+
+
 func draw_sector(node: CanvasItem, center: Vector2, radius: float, start_angle: float, end_angle: float, color: Color, steps := 32):
 	var points = [center]
 	for i in steps + 1:

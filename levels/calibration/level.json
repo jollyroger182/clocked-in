@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "title": "Calibration",
+    "musician": "Anonymous",
+    "charter": "Jolly",
+    "cover_artist": "N/A",
+
+    "bpm": 120,
+    "beats_per_bar": 4
+  },
+  "events": [
+    {
+      "beat": 0.0,
+      "type": "add_hand",
+      "id": 0,
+      "interval": 0.5,
+      "ticks": 7,
+      "stride": 5,
+      "color": "#FFFFFF",
+      "length": 0.8
+    },
+    {
+      "beat": 0.0,
+      "type": "add_hand",
+      "id": 1,
+      "interval": 0.5,
+      "ticks": 7,
+      "stride": -5,
+      "color": "#FFFFFF",
+      "length": 0.8
+    },
+    {
+      "beat": 3.0,
+      "type": "note",
+      "location": 15,
+      "hands": [0, 1]
+    }
+  ]
+}

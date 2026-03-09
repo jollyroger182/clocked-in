@@ -13,6 +13,8 @@ var sector_color = Color("#c9a227")
 @export var hands_manager: Node2D
 @export var conductor: Conductor
 
+var _tween: Tween
+var _tween_state := 0
 var _no_draw := false
 
 
@@ -29,14 +31,19 @@ func _process(_delta: float) -> void:
 	
 	if beatdiff > 0:
 		self_modulate.a = 0.5
-	elif beatdiff > -0.5:
-		var opacity = remap(beatdiff, -0.5, 0, 0.1, 0.3)
-		self_modulate.a = opacity
-	elif beatdiff > -2:
-		self_modulate.a = remap(beatdiff, -2, -0.5, 0, 0.1)
+	elif beatdiff > -0.5 and _tween_state == 1:
+		_tween.stop()
+		var duration = conductor.beat_to_time(beat) - conductor.position
+		_tween = create_tween().set_ease(Tween.EASE_IN)
+		_tween.tween_property(self, "self_modulate:a", 0.5, duration)
+		_tween_state = 2
+	elif beatdiff > -2 and _tween_state == 0:
+		var duration = conductor.beat_to_time(beat - 0.5) - conductor.position
+		_tween = create_tween().set_ease(Tween.EASE_IN)
+		_tween.tween_property(self, "self_modulate:a", 0.2, duration)
+		_tween_state = 1
 	
 	if beatdiff > -2:
-		print("beatdiff ", beatdiff, " modulate.a ", self_modulate.a)
 		queue_redraw()
 	
 	if _no_draw:
@@ -48,7 +55,6 @@ func _draw() -> void:
 		return
 	if not hands.is_empty():
 		var nodes = [hands_manager.hand_map.get(hands[0]), hands_manager.hand_map.get(hands[1])]
-		print(nodes)
 		if nodes[0] and nodes[1]:
 			var speed1: float = nodes[0].stride * 1.0 / nodes[0].interval
 			var speed2: float = nodes[1].stride * 1.0 / nodes[1].interval
@@ -63,6 +69,8 @@ func resolve(tier: Dictionary, diff: float) -> void:
 	print("resolved with tier ", tier["name"], " at ", diff)
 	
 	_no_draw = true
+	if _tween:
+		_tween.stop()
 	
 	var verdict = Verdict.instantiate()
 	verdict.tier = tier
