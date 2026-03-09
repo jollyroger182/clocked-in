@@ -11,7 +11,7 @@ class_name GamePlayer
 @onready var clock = $Clock
 @onready var hands = $Clock/Hands
 @onready var notes = $Clock/Notes
-@onready var conductor = $Conductor
+@onready var conductor: Conductor = $Conductor
 @onready var event_source = $EventSource
 
 

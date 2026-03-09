@@ -1,12 +1,12 @@
 extends Node2D
 
 @export var player: GamePlayer
+@export var pause_manager: PauseManager
 
 var level: Dictionary
 var audio: AudioStream
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	level = JSON.parse_string(FileAccess.get_file_as_string("user://level/level.json"))
 	audio = AudioStreamWAV.load_from_file("user://level/music.wav")
@@ -16,6 +16,7 @@ func _ready() -> void:
 	player.play()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		print("pause?")
+		pause_manager.pause()

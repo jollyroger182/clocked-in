@@ -2,10 +2,24 @@
 
 [ext_resource type="Script" uid="uid://cu0mnqcbu6w4l" path="res://scenes/game/game.gd" id="1_7h61r"]
 [ext_resource type="PackedScene" uid="uid://ceo2bnbuv0esq" path="res://components/game_player/game_player.tscn" id="1_sul5r"]
+[ext_resource type="Script" uid="uid://cqybe240yk8fr" path="res://scenes/game/pause_manager.gd" id="3_0sr1o"]
+[ext_resource type="PackedScene" uid="uid://bvx2wmhunqtqf" path="res://scenes/game/pause_menu/pause_menu.tscn" id="4_kelw5"]
 
-[node name="Game" type="Node2D" unique_id=389039367 node_paths=PackedStringArray("player")]
+[node name="Game" type="Node2D" unique_id=389039367 node_paths=PackedStringArray("player", "pause_manager")]
 script = ExtResource("1_7h61r")
 player = NodePath("GamePlayer")
+pause_manager = NodePath("PauseManager")
 
 [node name="GamePlayer" parent="." unique_id=144519773 instance=ExtResource("1_sul5r")]
 position = Vector2(640, 360)
+
+[node name="PauseManager" type="Node" parent="." unique_id=2013301707 node_paths=PackedStringArray("player", "pause_menu")]
+script = ExtResource("3_0sr1o")
+player = NodePath("../GamePlayer")
+pause_menu = NodePath("../CanvasLayer/PauseMenu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1749679329]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1011304420 node_paths=PackedStringArray("pause_manager") instance=ExtResource("4_kelw5")]
+visible = false
+pause_manager = NodePath("../../PauseManager")
