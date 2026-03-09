@@ -34,3 +34,12 @@ func unzip(reader: ZIPReader, folder: String):
 		var file = FileAccess.open(extract_to, FileAccess.WRITE)
 		file.store_buffer(contents)
 		file.close()
+
+
+func draw_sector(node: CanvasItem, center: Vector2, radius: float, start_angle: float, end_angle: float, color: Color, steps := 32):
+	var points = [center]
+	for i in steps + 1:
+		var t = i * 1.0 / steps
+		var angle = lerpf(start_angle, end_angle, t)
+		points.append(center + Vector2.from_angle(angle) * radius)
+	node.draw_colored_polygon(points, color)

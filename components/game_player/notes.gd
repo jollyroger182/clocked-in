@@ -8,6 +8,7 @@ const Note = preload("res://components/game_player/note/note.tscn")
 		notes = value
 		_update_notes()
 
+@export var hands: Node2D
 @export var conductor: Conductor
 @export var input_handler: InputHandler
 
@@ -22,9 +23,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	while _note_index < _note_nodes.size():
 		var note = _note_nodes[_note_index]
-		var time = conductor.beat_to_time(note["beat"])
-		if conductor.position > time + Constants.TIERS[-1]["threshold"]:
-			note.resolve(Constants.MISS_TIER)
+		var diff = conductor.position - conductor.beat_to_time(note.beat)
+		if diff > Constants.TIERS[-1]["threshold"]:
+			note.resolve(Constants.MISS_TIER, diff)
 			# TODO: track score etc
 			_note_index += 1
 		else:
@@ -35,10 +36,10 @@ func _on_hit() -> void:
 	if _note_index >= _note_nodes.size():
 		return
 	var note = _note_nodes[_note_index]
-	var diff = (conductor.position - conductor.beat_to_time(note.beat))
+	var diff = conductor.position - conductor.beat_to_time(note.beat)
 	for tier in Constants.TIERS:
 		if absf(diff) <= tier["threshold"]:
-			note.resolve(tier)
+			note.resolve(tier, diff)
 			# TODO: track score etc
 			_note_index += 1
 			break
@@ -57,6 +58,11 @@ func _update_notes() -> void:
 		node.location = note["location"]
 		if note.has("color"):
 			node.color = note["color"]
+		if note.has("hands") and note["hands"].size() == 2:
+			var hands_int: Array[int] = []
+			hands_int.assign(note["hands"])
+			node.hands = hands_int
+		node.hands_manager = hands
 		node.conductor = conductor
 		add_child(node)
 		_note_nodes.append(node)

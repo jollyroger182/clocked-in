@@ -4,7 +4,7 @@ const CLOCK_RADIUS = 250
 
 const TIERS = [
 	{ "name": "Perfect", "threshold": 0.060, "score": 1.0, "color": "#f4e56a" },
-	{ "name": "Good", "threshold": 0.100, "score": 0.6, "color": "#c9a227" },
+	{ "name": "Good", "threshold": 0.100, "score": 0.6, "color": "#4a9eba" },
 	{ "name": "Bad", "threshold": 0.160, "score": 0.0, "color": "#c97a27" }
 ]
 

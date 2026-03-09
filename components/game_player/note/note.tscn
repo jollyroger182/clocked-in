@@ -3,7 +3,5 @@
 [ext_resource type="Script" uid="uid://vnivp1ayggpu" path="res://components/game_player/note/note.gd" id="1_4fe06"]
 
 [node name="Note" type="Node2D" unique_id=1788909254]
+self_modulate = Color(1, 1, 1, 0)
 script = ExtResource("1_4fe06")
-beat = null
-location = null
-color = null

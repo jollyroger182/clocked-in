@@ -19,8 +19,9 @@ script = ExtResource("2_kewex")
 event_source = NodePath("../../EventSource")
 conductor = NodePath("../../Conductor")
 
-[node name="Notes" type="Node2D" parent="Clock" unique_id=668576876 node_paths=PackedStringArray("conductor", "input_handler")]
+[node name="Notes" type="Node2D" parent="Clock" unique_id=668576876 node_paths=PackedStringArray("hands", "conductor", "input_handler")]
 script = ExtResource("4_wt24m")
+hands = NodePath("../Hands")
 conductor = NodePath("../../Conductor")
 input_handler = NodePath("../../InputHandler")
 

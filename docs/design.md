@@ -36,6 +36,8 @@ This ZIP file will be unzipped to `user://level/` when the level is playing.
 		{
 			"beat": 0.0,
 			"type": "add_hand",
+			// unique identifier for this hand
+			"id": 0,
 			// every how many beats does this hand move?
 			"interval": 1.0,
 			// how many ticks does the hand move in total? (not including spawn)
@@ -61,7 +63,9 @@ This ZIP file will be unzipped to `user://level/` when the level is playing.
 			// position on the clock (0-59)
 			"location": 30,
 			// (optional) color for the effect
-			"color": "#000000"
+			"color": "#000000",
+			// (optional) ids of two hands, enables hit indicator arc sector
+			"hands": [0, 1]
 		}
 	]
 }
